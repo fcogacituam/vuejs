@@ -1,0 +1,11 @@
+.active{
+    background: crimson;
+    color: #fff;padding: 10px;
+}
+.danger::before{
+    content:'!!!!';
+}
+
+.demo-alert-box{
+    background-color: crimson;color: #fff;padding: 20px;width:100%;margin: 10px;
+}

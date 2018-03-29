@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <div v-if="seen">Now you see me</div>
+    </div>
+    <div id="app2">
+        <span v-bind:title="message">Hover sobre mi para ver el title</span>
+    </div>
+    <div id="app3">
+        <ul>
+            <li v-for="nombre in nombres">{{nombre.text}}</li>
+        </ul>
+        <ul>
+            <li v-for="pais in paises">{{pais}}</li>
+            <input type="text" v-model="pais">  
+            <button v-on:click="addPais">Add pais</button>
+        </ul>
+    </div>
+
+
+    <div id="app4">
+        <ol>
+            <todo-item v-for="color in colors"  v-bind:todo="color" v-bind:key="color.id">
+
+            </todo-item>
+        </ol>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                message:'VueJS',
+                seen:false
+            }
+        });
+        var app2 = new Vue({
+                el: '#app2',
+                data: {
+                    message: 'este es mi titulo'
+                }
+            });
+        var app3= new Vue({
+            el:'#app3',
+            data:{
+                pais:'texto por defecto',
+                nombres:[
+                    {text:'Francisco'},
+                    {text: 'Javier'},
+                    {text:'Andres'}
+                ],
+                paises:['chile','brasil','peru','argentina']
+
+            },
+            methods:{
+                addPais:function(){
+                    this.paises.push(this.pais)
+                    this.pais=''
+                }
+            }
+        });
+
+        // COMPONENTS
+        Vue.component('todo-item',{
+            props:['todo'],
+            template:'<li>{{todo.text}}</li>'
+        })
+
+        var app4= new Vue({
+            el:'#app4',
+            data:{
+                colors:[
+                    { id: 0, text: 'azul' },
+                    { id: 1, text: 'rojo' },
+                    { id: 2, text: 'verde' }
+                ]
+            }
+        })
+
+
+    </script>
+</body>
+</html>

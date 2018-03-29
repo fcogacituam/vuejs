@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Components</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app">
+        <blog-component title="primer titulo" content="contenido de primera noticia"></blog-component>
+        <div :style="{fontSize: postFontSize + 'em'}">
+            <blog-component v-for="not in noticias" v-bind:key="not.id" v-bind:title="not.title" 
+            v-bind:content="not.content"
+            v-on:enlarge-text="onEnlargeText">
+       </blog-component>
+        </div>
+
+
+        <alert-box>
+            Something bad happen
+        </alert-box>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="components.js"></script>
+</body>
+</html>

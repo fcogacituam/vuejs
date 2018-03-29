@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        {{foo}}
+        <button v-on:click="foo='baz'">Cámbialo!</button>
+    </div>
+    <div id="app2">
+        
+    </div>
+
+    <div id="app3">
+        {{a}} <br>
+        <span v-once>v-once directive will never change the data: {{a}}</span>
+        <button v-on:click="a='2'">Cambiar</button>
+    </div>
+
+    <div id="app4">
+        <input type="text" v-model="firstname">
+        <input type="text" v-model="lastname">
+        <h2>{{fullName}}</h2>
+        <button @click="fullName='Jhon Doe'">Cambiar nombre con setter de computed</button>
+    </div>
+
+<hr>
+    <div id="app5">
+        <a href="">Item 1</a>
+        <a href="" :class="{active:isActive, danger:hasError}">Item 2</a>
+        <a href="">Item 3</a>
+
+        <ul>
+            <my-component v-for="name in names" v-bind:obj="name"  bind v-bind:key="name.id"
+             class="baz boo" :class="{active: name.active}">
+            </my-component>
+        </ul>
+        <div v-if="show">
+            <label for="">Username</label>
+            <input type="text" placeholder="Enter username" key="username-input">
+        </div>
+        <div v-else>
+            <label for="">Email</label>
+            <input type="email" placeholder="Enter email" key="email-input">
+        </div>
+
+        <ul>
+            <li v-for="(name,index) in names" :key="name.id">{{index}}{{name.text}}</li>
+        </ul>
+        <ul>
+            <li v-for="(value,key,index) in object">{{index}}.{{key}}:{{value}}</li>
+        </ul>
+
+        <ul>
+            <li v-for="n in evenNumbers">{{n}}</li>
+        </ul>
+
+        <ul>
+            <template v-for="name in names" :key="name.id">
+                <li>{{ name.text }}</li>
+                <li class="divider"></li>
+            </template>
+        </ul>
+
+
+       <count-component></count-component>
+    <count-component></count-component>
+    <count-component></count-component>
+
+    <news-component  title="esto es in titulo..." content="este es el contenido"></news-component>
+    </div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="vue.js"></script>
+</body>
+</html>
