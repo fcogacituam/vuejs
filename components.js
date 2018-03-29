@@ -24,8 +24,8 @@ var app=new Vue({
     data:{
         noticias:[
             { id: 0, title: 'Titulo 1', content: 'este es el contenido' },
-            { id: 1, title: 'Titulo 2', content: 'este es el contenido' },
-            { id: 2, title: 'Titulo 3', content: 'este es el contenido' },
+            { id: 1, title: 'Titulo 2', content: 'este es el contenido de la noticia2' },
+            { id: 2, title: 'Titulo 3', content: 'este es el contenido de la noticia 3' },
         ],
         postFontSize:1
     },
